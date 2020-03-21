@@ -1,0 +1,26 @@
+executable("hello") {
+    sources = [
+        "src/hello.c",
+    ]
+
+    deps = [
+        ":hello_shared",
+        ":hello_static",
+    ]
+}
+
+shared_library("hello_shared") {
+    sources = [
+        "src/hello_shared.c",
+        "src/hello_shared.h",
+    ]
+
+    defines = ["HELLO_SHARED_IMPLEMENTATION"]
+}
+
+static_library("hello_static") {
+    sources = [
+        "src/hello_static.c",
+        "src/hello_static.h",
+    ]
+}
